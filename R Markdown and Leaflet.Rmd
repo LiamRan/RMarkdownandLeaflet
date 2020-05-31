@@ -1,0 +1,33 @@
+---
+title: "R Markdown and Leaflet"
+author: "William Tai"
+date: "5/29/2020"
+output:
+  html_document:
+    df_print: paged
+---
+### Introduction
+
+The purpose of this assignment is to create a webpage using R Markdown that features a map created with Leaflet. The output webpage is displayed on Github (https://liamran.github.io/RMarkdownandLeaflet/).
+
+### Map creation
+
+Over 90% of all Antarctica cruises depart from Ushuaia, Argentina. The places were selected for the map based on the ports of embarkmation routes to Antarctica.
+
+The code of creating an Antarctica map using Leaflet is given below.
+```{r, message = FALSE}
+library(leaflet) # Required library for the assignment
+map <- leaflet() %>%
+  addTiles() %>%
+  addMarkers(lat = -54.8019, lng = -68.3030, popup = "Ushuaia") %>%
+  addMarkers(lat = -62.1014, lng = -57.9296, popup = "Penguin Island") %>%
+  addMarkers(lat = -63.5333, lng = -56.9000, popup = "Brown Bluff") %>%
+  addMarkers(lat = -63.2000, lng = -57.3000, popup = "Gourdin Island") %>%
+  addMarkers(lat = -64.6872, lng = -62.6225, popup = "Cuverville Island") %>%
+  addMarkers(lat = -64.8500, lng = -62.9000, popup = "Paradise Harbor") %>%
+  addMarkers(lat = -65.1706, lng = -64.1435, popup = "Petermann Island") %>%
+  addMarkers(lat = -65.0800, lng = -64.0000, popup = "Booth Island") %>%
+  addMarkers(lat = -64.8252, lng = -63.4945, popup = "Port Lockroy")
+map
+```
+
